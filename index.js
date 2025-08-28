@@ -22,6 +22,11 @@ const defaultUpload = path.join(__dirname, 'uploads', 'videos');
 const uploadDir = process.env.UPLOAD_DIR && process.env.UPLOAD_DIR.trim() ? process.env.UPLOAD_DIR : defaultUpload;
 if (!fs.existsSync(path.join(__dirname, 'data'))) fs.mkdirSync(path.join(__dirname, 'data'), { recursive: true });
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+fs.mkdirSync(process.env.UPLOAD_DIR, { recursive: true });
+const DB_FILE = process.env.DB_FILE || path.join(process.cwd(), 'data', 'sharemoment.db');
+fs.mkdirSync(path.dirname(DB_FILE), { recursive: true });
+const db = new Database(DB_FILE);
+
 
 // DB init & seed
 initDb();
