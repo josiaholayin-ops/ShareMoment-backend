@@ -51,5 +51,5 @@ app.use((err, _req, res, _next) => {
 
 app.listen(PORT, () => {
   if (!process.env.JWT_SECRET) console.warn('WARNING: JWT_SECRET not set; using insecure dev fallback. Set JWT_SECRET in backend/.env');
-  console.log(`API running on http://localhost:${PORT}`);
+  console.log(`API running on ${PORT}`);
 });
