@@ -14,7 +14,7 @@ jobs:
       # Optional sanity: fail fast if package.json/scripts are missing
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - run: npm ci --omit=dev
 
       - name: Deploy to Azure Web App
@@ -23,3 +23,4 @@ jobs:
           app-name: 'ShareMoment1'   # <-- EXACT App Service name
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A369F7F4214149E98060A107FA57740F }}
           package: '.'               # <-- DEPLOY THE REPO ROOT
+
